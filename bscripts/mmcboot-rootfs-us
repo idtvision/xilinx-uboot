@@ -11,9 +11,10 @@ run setupqspi || exit;
 # exist at all - so what we have to do is always switch the device numbers
 # before we generate bootargs
 
-setexpr mmcdev ${mmcdev} + 1 || exit;
-setexpr mmcdev ${mmcdev} % 2;
-setexpr mmcdev sub 0x '';
+# Do not do that now, please (on Blade 1)
+#setexpr mmcdev ${mmcdev} + 1 || exit;
+#setexpr mmcdev ${mmcdev} % 2;
+#setexpr mmcdev sub 0x '';
 
 # setup mmc bootargs now as we have updated the mmcdev value
 run mmc_args;
