@@ -105,7 +105,7 @@
     "serverip=10.10.10.100\0"                   \
 	"ethprime=eth1\0" \
 	"ethrotate=no\0" \
-    "serverpath=/srv/nfs/rootfs\0"              \
+    "serverpath=/export/rootfs\0"              \
     "netmask=255.255.255.0\0"                   \
                                                 \
     "kernel_image=" KERNEL_IMAGE_FILE "\0"      \
