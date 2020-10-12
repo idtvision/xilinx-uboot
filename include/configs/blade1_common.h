@@ -101,8 +101,10 @@
 #endif
 #define CONFIG_EXTRA_ENV_SETTINGS               \
     "loadaddr=0x200000\0"                       \
-    "ipaddr=192.168.1.113\0"                    \
-    "serverip=192.168.1.103\0"                  \
+    "ipaddr=10.10.10.15\0"                      \
+    "serverip=10.10.10.100\0"                   \
+	"ethprime=eth1\0" \
+	"ethrotate=no\0" \
     "serverpath=/srv/nfs/rootfs\0"              \
     "netmask=255.255.255.0\0"                   \
                                                 \

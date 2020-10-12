@@ -22,6 +22,7 @@
 
 	aliases {
 		ethernet0 = &gem0;
+		ethernet1 = &gem3;
 		gpio0 = &gpio;
 		i2c0 = &i2c0;
 		i2c1 = &i2c1;
@@ -34,6 +35,29 @@
 		spi0 = &qspi;
 		usb0 = &usb0;
 	};
+
+    mdio {
+        compatible = "cdns,macb-mdio";
+        reg = <0x0 0xff0b0000 0x0 0x1000>;
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy7: ethernet-phy@7 {
+            reg = <7>;
+            txc-skew-ps = <1800>;
+            txen-skew-ps = <420>;
+            txd0-skew-ps = <420>;
+            txd1-skew-ps = <420>;
+            txd2-skew-ps = <420>;
+            txd3-skew-ps = <420>;
+            rxc-skew-ps = <900>;
+            rxdv-skew-ps = <420>;
+            rxd0-skew-ps = <420>;
+            rxd1-skew-ps = <420>;
+            rxd2-skew-ps = <420>;
+            rxd3-skew-ps = <420>;
+        };
+    };
+
 
 	chosen {
 		bootargs = "earlycon";
@@ -118,13 +142,22 @@
 };
 
 &gem0 {
-	status = "disabled";
+	status = "okay";
 	local-mac-address = [00 0a 35 00 02 90];
-	phy-handle = <&phy3>;
 	phy-mode = "rgmii-id";
-	phy3: phy@3 {
-		reg = <0x3>;
-	};
+    phy-handle = <&phy3>;
+    phy-mode = "rgmii-id";
+    phy3: phy@3 {
+        reg = <0x3>;
+    };
+
+};
+
+&gem3 {
+	status = "okay";
+	local-mac-address = [00 0a 35 00 02 91];
+	phy-handle = <&phy7>;
+	phy-mode = "rgmii-id";
 };
 
 &gpio {
