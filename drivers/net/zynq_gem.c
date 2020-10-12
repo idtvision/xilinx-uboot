@@ -296,8 +296,13 @@ static int phy_detection(struct udevice *dev)
 			}
 		}
 	}
-	printf("PHY is not detected\n");
-	return -1;
+	i = 7;
+	printf("PHY is not detected, so I setup my addr\n");
+    priv->phyaddr = i;
+    debug("Found valid phy address, %d\n", i);
+    return 0;
+
+//	return -1;
 }
 
 static int zynq_gem_setup_mac(struct udevice *dev)

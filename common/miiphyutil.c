@@ -91,10 +91,10 @@ int mdio_register(struct mii_dev *bus)
 		return -1;
 
 	/* check if we have unique name */
+	printf("mdio_register: registering new device '%s'\n", bus->name);
 	if (miiphy_get_dev_by_name(bus->name)) {
-		printf("mdio_register: non unique device name '%s'\n",
-			bus->name);
-		return -1;
+		printf("mdio_register: non unique device name '%s'\n", bus->name);
+		return 0;  // let's assume it is OK to regsiter again
 	}
 
 	/* add it to the list */

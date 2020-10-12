@@ -234,6 +234,14 @@ int genphy_update_link(struct phy_device *phydev)
 	if (phydev->link && mii_reg & BMSR_LSTATUS)
 		return 0;
 
+	if (mii_reg & BMSR_LSTATUS) {
+	//	printf("link up\n");
+		//printf("no doing PHY autoneg\n");
+		//return 0;
+	} else {
+		printf("link down phy addr=%d\n", phydev->addr);
+		//printf("link down phy bus addr=%p\n", phydev->bus->addr);
+	}
 	if ((phydev->autoneg == AUTONEG_ENABLE) &&
 	    !(mii_reg & BMSR_ANEGCOMPLETE)) {
 		int i = 0;
