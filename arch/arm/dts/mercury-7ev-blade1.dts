@@ -142,7 +142,7 @@
 };
 
 &gem0 {
-	status = "okay";
+	status = "disabled";
 	local-mac-address = [00 0a 35 00 02 90];
 	phy-mode = "rgmii-id";
     phy-handle = <&phy3>;
