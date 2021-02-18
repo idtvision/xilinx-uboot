@@ -128,7 +128,7 @@
     "nand_kernel_size=0x500000\0"               \
     "nand_devicetree_size=0x10000\0"            \
                                                 \
-    "def_args=console=ttyPS0,115200 rw earlyprintk\0"\
+    "def_args=console=ttyPS0,115200 rw earlyprintk mem=512M\0"\
     "ramdisk_args=setenv bootargs ${def_args} root=/dev/ram\0"\
     "mmc_args=setenv bootargs ${def_args} rootwait root=/dev/mmcblk${mmcdev}p2\0"\
     "nand_args=setenv bootargs ${def_args} rootwait=1 ubi.mtd=4 rootfstype=ubifs root=ubi0:rootfs\0"\
